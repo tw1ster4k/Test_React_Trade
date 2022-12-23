@@ -1,0 +1,33 @@
+.Block{
+    list-style-type: none;
+}
+
+.Block-Cost{
+    list-style-type: none;
+    background-color: #c4c5ca;
+}
+
+.Block-Month{
+    background-color: #c4c5ca;
+    margin-top: 10px;
+}
+
+.Block-Percent{
+    margin-top: 10px;
+}
+
+.Block-Cost_color_green{
+    color: #394700
+}
+
+.Block-Cost_color_red{
+    color: #840000;
+}
+
+.Block-Cost_color_blue{
+    color:  #3947a5
+}
+
+.Block-Cost{
+    margin-left: -15%
+}

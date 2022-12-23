@@ -1,0 +1,56 @@
+.Stats{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 100px;
+  border: 2px solid gray;
+  border-radius: 50px;
+}
+
+.Timer{
+  height: 50px;
+  margin: 0 auto;
+  width: 200px;
+  background-color: #d99c98 ;
+  border-radius: 10px;
+}
+
+.Time{
+  position: absolute;
+  margin-top: 0.7%;
+  margin-left: 4.5%;
+  color: #840000;
+}
+
+.Params{
+  list-style-type: none;
+}
+
+.Cost{
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  background-color: #c4c5ca;
+  height: 55px;
+}
+
+.Month{
+  background-color: #c4c5ca;
+  margin-top: 10px;
+}
+
+.Conditions{
+  margin-top: 10px;
+}
+
+.Participants{
+  position: absolute;
+  width: 196.5vh;
+  height: 50px;
+  margin-top: 48px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.Participant{
+  margin-left: 2%;
+}
