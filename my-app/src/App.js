@@ -4,21 +4,31 @@ import './App.css';
 import Block from './Component/Block/Block';
 
 function App() {
-  const [state, setState] = useState(0)
-  const [minutes, setMinutes] = useState(2)
   const arr = [1,2,3,4]
-
-
- let a  = setTimeout(()=> {
-      setState(state-1)
-    }, 1000)
+  let Timer = new Date();
   
-if(state <= 0 && minutes <= 0){
-  clearTimeout(a)
-} else if(state === 0 && minutes > 0){
-  setMinutes(minutes-1)
-  setState(59)
-}
+  const [second, setSecond] = useState(59 - Timer.getSeconds())
+  const [minutes, setMinutes] = useState(Timer.getMinutes() % 2 === 0 && second === 0 ? 2 : Timer.getMinutes() % 2 )
+
+  
+
+        setTimeout(() => {
+
+          if(Number(second) > 0){
+            setSecond(Number(second) - 1)
+          }else if(Number(second) === 0 && Number(minutes) > 0){
+              setMinutes(Number(minutes) - 1)
+              setSecond(59)
+          }else if(Number(second) === 0 && Number(minutes) === 0){
+            setMinutes(2)
+            setSecond(0)
+          }
+        }, 1000)
+
+
+
+
+console.log(minutes + ":" + second)
 
 
   return (
@@ -26,7 +36,7 @@ if(state <= 0 && minutes <= 0){
 
       <div className="Timer">
         <div className="Time">
-      {state || minutes ? minutes + ":" + state : "Stop"}
+          {minutes < 10  && second < 10 ? `0${minutes}:0${second}` : `0${minutes}:${second}`}
         </div>
       </div>
 
