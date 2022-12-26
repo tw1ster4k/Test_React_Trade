@@ -6,12 +6,13 @@
   border-radius: 50px;
 }
 
-.Timer{
+.Participant-Timer{
   height: 50px;
   margin: 0 auto;
   width: 200px;
   background-color: #d99c98 ;
   border-radius: 10px;
+  margin-top: 80px;
 }
 
 .Time{
@@ -53,4 +54,21 @@
 
 .Participant{
   margin-left: 2%;
+}
+
+.Participant-Timer_position_one{
+    margin-left: 27.5%;
+}
+
+.Participant-Timer_position_two{
+      margin-left: 46.5%;
+}
+
+.Participant-Timer_position_three{
+  margin-left: 66%;
+}
+
+
+.Participant-Timer_position_four{
+  margin-left: 86%;
 }

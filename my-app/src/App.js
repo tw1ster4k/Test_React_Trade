@@ -2,15 +2,24 @@ import React from 'react';
 import { useState} from 'react';
 import './App.css';
 import Block from './Component/Block/Block';
+import { cn } from '@bem-react/classname';
 
 function App() {
-  const arr = [1,2,3,4]
+  const arr = ["one","two","three","four"]
   let Timer = new Date();
+  const cnParticipant = cn('Participant')
   
+  const [number, setNumber] = useState(localStorage.getItem('count') || 0)
   const [second, setSecond] = useState(59 - Timer.getSeconds())
   const [minutes, setMinutes] = useState(Timer.getMinutes() % 2 === 0 && second === 0 ? 2 : Timer.getMinutes() % 2 )
 
+        let Time =  <div className={cnParticipant(`Timer`,{position: arr[number]})}>
+         <div className="Time">
+        {minutes < 10  && second < 10 ? `0${minutes}:0${second}` : `0${minutes}:${second}`}
+            </div>
+        </div>
   
+
 
         setTimeout(() => {
 
@@ -22,43 +31,33 @@ function App() {
           }else if(Number(second) === 0 && Number(minutes) === 0){
             setMinutes(2)
             setSecond(0)
+            setNumber(Number(number)+1 >= arr.length ? 0 : Number(number) + 1 )
+            localStorage.setItem("count", Number(number) + 1 >= arr.length? 0 : Number(number) + 1)
           }
         }, 1000)
 
 
-
-
-console.log(minutes + ":" + second)
+//console.log(localStorage.getItem('count'))
+ 
 
 
   return (
     <div className="App">
 
-      <div className="Timer">
-        <div className="Time">
-          {minutes < 10  && second < 10 ? `0${minutes}:0${second}` : `0${minutes}:${second}`}
-        </div>
-      </div>
+  
+          {Time}
+      
 
 
       <div className='Participants'>
         <div className='Name'>
               Наименование компании
         </div>
-        <div className='Participant'>
-              Участник1
+        {arr.map((el, index) => 
+        <div className={cnParticipant(index)} key={index}>
+              Участник {el}
         </div>
-        <div className='Participant'>
-        Участник2
-        </div>
-        <div className='Participant'>
-        Участник3
-        </div>
-        <div className='Participant'>
-        Участник4
-        </div>
-
-      
+        )}
       </div>
 
 
